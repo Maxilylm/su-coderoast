@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --accent: #ff6b35;
+  --accent-glow: rgba(255, 107, 53, 0.3);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Spotlight effect */
+.spotlight {
+  background: radial-gradient(
+    ellipse 600px 400px at 50% 0%,
+    rgba(255, 107, 53, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+/* Comedy club stage glow */
+.stage-glow {
+  box-shadow: 0 0 80px rgba(255, 107, 53, 0.1), 0 0 160px rgba(255, 107, 53, 0.05);
+}
+
+/* Textarea styling */
+.code-input {
+  background: #111;
+  border: 1px solid #333;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.code-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+  outline: none;
+}
+
+/* Roast text reveal animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.roast-text {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Fire meter animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.fire-active {
+  animation: flicker 0.4s ease-in-out infinite;
+}
+
+/* Pulsing button */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
+  }
+}
+
+.btn-roast:not(:disabled) {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.btn-roast:hover:not(:disabled) {
+  animation: none;
+  box-shadow: 0 0 50px rgba(255, 107, 53, 0.7);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
